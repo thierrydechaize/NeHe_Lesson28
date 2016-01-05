@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Lesson28" />
+		<Option platforms="Windows;" />
+		<Option makefile="makefile" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Option show_notes="0">
+			<notes>
+				<![CDATA[OpenGL Tutorial #28.
+
+Project Name: Jeff Molofee's OpenGL Tutorial
+
+Project Description: Bezier Tutorial.
+
+Authors Name: David Nikdel & Jeff Molofee (aka NeHe)
+
+Authors Web Site: nehe.gamedev.net
+
+COPYRIGHT AND DISCLAIMER: (c)2000 Jeff Molofee & David Nikdel
+
+	If you plan to put this program on your web page or a cdrom of
+	any sort, let me know via email, I'm curious to see where
+	it ends up :)
+
+        If you use the code for your own projects please give me credit,
+        or mention my web site somewhere in your program or it's docs.
+
+Modified smoothly by Thierry DECHAIZE
+
+Paradigm : obtain one source (only one !) compatible for multiple free C Compilers
+    and provide for all users with development environment on Windows (64 bits compatible),
+    the great Code::Blocks manager (version 13.12), and don't use glaux.lib or glaux.dll.
+
+      a) Mingw 32 and 64 bits : downloadable http://sourceforge.net/projects/mingw/
+      b) Mingw 32 DEV-CPP  : included in old Dev-Cpp http://sourceforge.net/projects/devcpp/
+      c) Mingw 32 CB : included in package Code::Blocks (version 13.12) http://sourceforge.net/projects/codeblocks/files/Binaries/13.12/Windows/
+     d) Borland C : downloadable  http://edn.embarcadero.com/article/20633
+     e) Digital Mars Compiler C : version 8.57 downloadable http://www.digitalmars.com
+     f) OpenWatcom : version 1.9 downloadable http://openwatcom.mirror.fr/    Version 2.0 64bits seems very buggy !!!
+     g) Lcc and Lcc64 : downloadable http://www.cs.virginia.edu/~lcc-win32/
+     h) Cygwin : downloadable http://www.cygwin.com/install.html (setup.exe)
+      i) Visual Studio 2005 + 64bits: express edition for free (my version 2005 is full not express) http://www.microsoft.com/france/visual-studio/essayez/express.aspx
+       j) TDM GCC 64 bits : downloadable on http://sourceforge.net/projects/TDM-GCC
+
+  Important remark : All install in C partition, "no space" and "no special characters" in the name of directories
+            (it's reason to not install in C:\Program Files (x86) ... by default proposed on windows 64 bits)
+
+    Add resource file and resource header for restitute version + icon OpenGL.ico for fun
+  because versionning is important, same for freeware :-) !]]>
+			</notes>
+		</Option>
+		<Build>
+			<Target title="Debug Mingw32 CB">
+				<Option platforms="Windows;" />
+				<Option output="binMingW32CB/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objMingW32CB/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-march=core2" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Release Mingw32 CB">
+				<Option platforms="Windows;" />
+				<Option output="binMingW32CB/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objMingW32CB/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Debug Mingw32 official">
+				<Option platforms="Windows;" />
+				<Option output="binMingW32/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objMingW32/Debug/" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_mingw32_official_version_481" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Release Mingw32 official">
+				<Option platforms="Windows;" />
+				<Option output="binMingW32/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objMingW32/Release/" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_mingw32_official_version_481" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Debug Mingw32 Dev-Cpp">
+				<Option platforms="Windows;" />
+				<Option output="binDevCpp/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objDevCpp/Debug/" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_mingw32_devcpp_version_441" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Release Mingw32 Dev-Cpp">
+				<Option platforms="Windows;" />
+				<Option output="binDevCpp/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objDevCpp/Release/" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_mingw32_devcpp_version_441" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Debug DMC">
+				<Option platforms="Windows;" />
+				<Option output="binDMC/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objDMC/Debug" />
+				<Option type="0" />
+				<Option compiler="dmc" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Compiler>
+					<Add option="-WA" />
+					<Add option="-H" />
+					<Add option="-D" />
+					<Add option="-g" />
+					<Add option="-Ab" />
+					<Add directory="C:/dm/include/gl" />
+				</Compiler>
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="comdlg32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+				</Linker>
+			</Target>
+			<Target title="Release DMC">
+				<Option platforms="Windows;" />
+				<Option output="binDMC/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objDMC/Release/" />
+				<Option type="0" />
+				<Option compiler="dmc" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Compiler>
+					<Add option="-Ab" />
+				</Compiler>
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="comdlg32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+				</Linker>
+			</Target>
+			<Target title="Debug CYGWIN">
+				<Option platforms="Windows;" />
+				<Option output="binCYGWIN/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objCYGWIN/Debug" />
+				<Option type="0" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-march=core2" />
+					<Add option="-g" />
+					<Add option="-O2 -mwin32" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="-mwindows" />
+					<Add library="glut32" />
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="winmm" />
+				</Linker>
+			</Target>
+			<Target title="Release CYGWIN">
+				<Option platforms="Windows;" />
+				<Option output="binCYGWIN/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objCYGWIN/Release/" />
+				<Option type="0" />
+				<Option compiler="cygwin" />
+				<Compiler>
+					<Add option="-march=core2" />
+				</Compiler>
+				<Linker>
+					<Add option="-mwindows" />
+					<Add library="glut32" />
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="winmm" />
+				</Linker>
+			</Target>
+			<Target title="Debug lcc">
+				<Option platforms="Windows;" />
+				<Option output="binllc/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objllc/Debug" />
+				<Option type="0" />
+				<Option compiler="lcc" />
+				<Compiler>
+					<Add option="-g2" />
+				</Compiler>
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="lrc.exe -IC:\lcc\include -foobjllc\Debug\Lesson28.res  Lesson28.rc" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Release lcc">
+				<Option platforms="Windows;" />
+				<Option output="binllc/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objllc/Release/" />
+				<Option type="0" />
+				<Option compiler="lcc" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="lrc.exe -IC:\lcc\include -foobjllc\Release\Lesson28.res  Lesson28.rc" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Debug lcc64">
+				<Option platforms="Windows;" />
+				<Option output="binllc64/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objllc64/Debug" />
+				<Option type="0" />
+				<Option compiler="lcc_compiler_64" />
+				<Compiler>
+					<Add option="-g2" />
+				</Compiler>
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="lrc.exe -IC:\lcc64\include64 -foobjllc64\Debug\Lesson28.res  Lesson28.rc" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Release lcc64">
+				<Option platforms="Windows;" />
+				<Option output="binllc64/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objllc64/Release/" />
+				<Option type="0" />
+				<Option compiler="lcc_compiler_64" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="lrc.exe -IC:\lcc64\include64 -foobjllc64\Release\Lesson28.res  Lesson28.rc" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Debug VS2005">
+				<Option platforms="Windows;" />
+				<Option output="binVS2005/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objVS2005/Debug" />
+				<Option type="0" />
+				<Option compiler="msvc8" />
+				<Compiler>
+					<Add option="/Zi" />
+					<Add option="-D" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="/DEBUG" />
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="user32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="winmm" />
+					<Add library="gdi32" />
+					<Add library="shell32" />
+					<Add library="kernel32" />
+				</Linker>
+			</Target>
+			<Target title="Release VS2005">
+				<Option platforms="Windows;" />
+				<Option output="binVS2005/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objVS2005/Release/" />
+				<Option type="0" />
+				<Option compiler="msvc8" />
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="winmm" />
+					<Add library="shell32" />
+					<Add library="user32" />
+					<Add library="kernel32" />
+					<Add library="gdi32" />
+				</Linker>
+			</Target>
+			<Target title="Debug VS2005 X64">
+				<Option output="binVS2005X64/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objVS2005X64/Debug/" />
+				<Option type="0" />
+				<Option compiler="microsoft_visual_c_20052008_x64" />
+				<Compiler>
+					<Add option="/TC" />
+					<Add option="/Wp64" />
+					<Add option="/Zi" />
+					<Add option="/D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add option="/DEBUG" />
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="user32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="winmm" />
+					<Add library="gdi32" />
+					<Add library="shell32" />
+					<Add library="kernel32" />
+				</Linker>
+			</Target>
+			<Target title="Release VS2005 X64">
+				<Option output="binVS2005X64/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objVS2005X64/Release/" />
+				<Option type="0" />
+				<Option compiler="microsoft_visual_c_20052008_x64" />
+				<Compiler>
+					<Add option="/TC" />
+					<Add option="/Wp64" />
+				</Compiler>
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="user32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="winmm" />
+					<Add library="gdi32" />
+					<Add library="shell32" />
+					<Add library="kernel32" />
+				</Linker>
+			</Target>
+			<Target title="Debug BorlandC">
+				<Option platforms="Windows;" />
+				<Option output="binBC55/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objBC55/Debug" />
+				<Option type="0" />
+				<Option compiler="bcc" />
+				<Compiler>
+					<Add option="-tW" />
+					<Add option="-6" />
+					<Add option="-y" />
+					<Add option="-v" />
+				</Compiler>
+				<Linker>
+					<Add library="cw32mti" />
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="cw32" />
+					<Add library="gdi32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="winmm" />
+					<Add library="user32" />
+					<Add library="import32" />
+				</Linker>
+			</Target>
+			<Target title="Release BorlandC">
+				<Option platforms="Windows;" />
+				<Option output="binBC55/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objBC55/Release/" />
+				<Option type="0" />
+				<Option compiler="bcc" />
+				<Compiler>
+					<Add option="-tW" />
+					<Add option="-6" />
+					<Add option="-v-" />
+				</Compiler>
+				<Linker>
+					<Add library="cw32mti" />
+					<Add library="opengl32" />
+					<Add library="glu32" />
+					<Add library="cw32" />
+					<Add library="gdi32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="winmm" />
+					<Add library="user32" />
+					<Add library="import32" />
+				</Linker>
+			</Target>
+			<Target title="Debug Mingw64">
+				<Option platforms="Windows;" />
+				<Option output="binMingW64/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objMingW64/Debug/" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_mingw64" />
+				<Compiler>
+					<Add option="-march=core2" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Release Mingw64">
+				<Option platforms="Windows;" />
+				<Option output="binMingW64/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objMingW64/Release/" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_mingw64" />
+				<Compiler>
+					<Add option="-march=core2" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Debug TDM MinGW64">
+				<Option platforms="Windows;" />
+				<Option output="binTDMW64/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objTDMW64/Debug" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_tdm_mingw64" />
+				<Compiler>
+					<Add option="-march=core2" />
+					<Add option="-g" />
+					<Add option="-std=c99" />
+					<Add option="-D_DEBUG" />
+				</Compiler>
+				<Linker>
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Release TDM MinGW64">
+				<Option platforms="Windows;" />
+				<Option output="binTDMW64/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objTDMW64/Release" />
+				<Option type="0" />
+				<Option compiler="gnu_gcc_compiler_tdm_mingw64" />
+				<Compiler>
+					<Add option="-march=core2" />
+					<Add option="-O2" />
+					<Add option="-std=c99" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libglu32" />
+					<Add library="libopengl32" />
+					<Add library="libadvapi32" />
+					<Add library="libcomdlg32" />
+					<Add library="libgdi32" />
+					<Add library="libwinmm" />
+				</Linker>
+			</Target>
+			<Target title="Release Open WATCOM">
+				<Option platforms="Windows;" />
+				<Option output="binOpenWATCOM/Release/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objOpenWATCOM/Release/" />
+				<Option type="0" />
+				<Option compiler="ow" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Compiler>
+					<Add option="-bcl=nt" />
+				</Compiler>
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+				</Linker>
+			</Target>
+			<Target title="Debug Open WATCOM">
+				<Option platforms="Windows;" />
+				<Option output="binOpenWATCOM/Debug/Lesson28" prefix_auto="1" extension_auto="1" />
+				<Option object_output="objOpenWATCOM/Debug" />
+				<Option type="0" />
+				<Option compiler="ow" />
+				<Option projectCompilerOptionsRelation="0" />
+				<Compiler>
+					<Add option="-d2" />
+					<Add option="-bcl=nt" />
+					<Add option="-H" />
+					<Add option="-D" />
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add library="glu32" />
+					<Add library="opengl32" />
+					<Add library="advapi32" />
+					<Add library="comdlg32" />
+					<Add library="gdi32" />
+					<Add library="winmm" />
+				</Linker>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All build" targets="Debug Mingw32 CB;Release Mingw32 CB;Debug Mingw32 official;Release Mingw32 official;Debug Mingw32 Dev-Cpp;Release Mingw32 Dev-Cpp;Debug DMC;Release DMC;Debug CYGWIN;Release CYGWIN;Debug lcc;Release lcc;Debug lcc64;Release lcc64;Debug VS2005;Release VS2005;Debug VS2005 X64;Release VS2005 X64;Debug BorlandC;Release BorlandC;Debug Mingw64;Release Mingw64;Debug TDM MinGW64;Release TDM MinGW64;Release Open WATCOM;Debug Open WATCOM;" />
+		</VirtualTargets>
+		<Unit filename="Lesson28.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Lesson28.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="resource.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project project_number="1.0.1.2" output_language="French" />
+				<doxyfile_build extract_all="1" />
+				<doxyfile_warnings />
+				<doxyfile_output rtf="1" />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

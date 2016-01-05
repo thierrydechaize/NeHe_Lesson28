@@ -1,0 +1,95 @@
+/*
+*
+*******************************************
+*                                         *
+*   Resource File                         *
+*   Created by Thierry DECHAIZE           *
+*   Date : 2013/11/29                                     *
+*******************************************
+*
+*/
+
+/**          Comments manageable by Doxygen
+*
+* \file            Lesson28.rc
+* \author          Created by Thierry Dechaize to verify paradigm : one source for multiple C or C++ Compilers
+* \version         1.0.1.2
+* \date            3 janvier 2016
+* \brief           Les déclarations de ressources (icônes et informations de version)
+* \details         Rien à dire, il faut lire.
+*
+*
+*/
+
+#if defined(_WIN32) || defined(_WIN64)
+
+#include <windows.h>
+#ifdef __LCC__
+#include <winver.h>
+#endif
+#include "resource.h"
+
+LANGUAGE LANG_FRENCH, SUBLANG_FRENCH
+#pragma code_page(1252)
+
+////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\opengl.ico"
+IDI_MYICON              ICON                    "res\\opengl.ico"
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION            VER_FILEVERSION
+ PRODUCTVERSION         VER_PRODUCTVERSION
+ FILEFLAGSMASK          0x3fL // VS_FFI_FILEFLAGSMASK
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS                 VOS__WINDOWS32
+ FILETYPE               VFT_APP
+ FILESUBTYPE            VFT2_UNKNOWN
+ BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "Build",            VER_DATE_BUILD
+            VALUE "Comments",         VER_COMMENTS
+            VALUE "CompanyName",      VER_COMPANYNAME_STR
+            VALUE "FileDescription",  VER_FILEDESCRIPTION_STR
+            VALUE "FileVersion",      VER_FILEVERSION_STR
+            VALUE "InternalName",     VER_INTERNALNAME_STR
+            VALUE "LegalCopyright",   VER_LEGALCOPYRIGHT_STR
+            VALUE "LegalTrademarks1", VER_LEGALTRADEMARKS1_STR
+            VALUE "LegalTrademarks2", VER_LEGALTRADEMARKS2_STR
+            VALUE "OriginalFilename", VER_ORIGINALFILENAME_STR
+            VALUE "ProductName",      VER_PRODUCTNAME_STR
+            VALUE "ProductVersion",   VER_PRODUCTVERSION_STR
+            VALUE "Support",          VER_SUPPORT
+            VALUE "Users",            VER_USERS
+        END
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        /* The following line should only be modified for localized versions.     */
+        /* It consists of any number of WORD,WORD pairs, with each pair           */
+        /* describing a language,codepage combination supported by the file.      */
+        /*                                                                        */
+        /* For example, a file might have values "0x409,1252" indicating that it  */
+        /* supports English language (0x409) in the Windows ANSI codepage (1252). */
+        VALUE "Translation", 0x40c, 1252    // French Language Translation
+    END
+ END
+
+#endif //_WIN32 ou _WIN64
